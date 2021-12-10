@@ -1,16 +1,14 @@
 package atm;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.junit.Assert.*;
 
-
-class ATMTest {
+public class atmTest {
     ATM atm;
     ByteArrayOutputStream outputStream;
 
@@ -21,10 +19,10 @@ class ATMTest {
     }
 
     @Test
-    void process() throws NotFinishProcessException {
+    public void process() throws NotFinishProcessException {
         System.setOut(new PrintStream(outputStream));
         atm.process(125);
-        assertEquals(outputStream.toString().trim(), "20 bills : 6\n10 bills : 0\n5 bills : 1");
+        assertEquals(outputStream.toString().trim(), "Took 1 5-bills.\nTook 0 10-bills.\nTook 6 20-bills.");
         System.setOut(System.out);
     }
 
